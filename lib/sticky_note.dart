@@ -77,7 +77,7 @@ class StickyNotePainter extends CustomPainter {
   }
 }
 
-Color brighten(Color c, [int percent = 30]) {
+Color brighten(Color c, [int percent = 20]) {
   var p = percent / 100;
   return Color.fromARGB(
       c.alpha,
