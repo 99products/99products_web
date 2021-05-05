@@ -9,27 +9,32 @@ import 'package:responsive_grid/responsive_grid.dart';
 import 'sticky_note.dart';
 
 class Home extends StatelessWidget {
+  var width, height;
+
   @override
   Widget container(BuildContext context, String data) {
     Random random = new Random();
     int index = random.nextInt(angles.length);
     int colorindex = random.nextInt(colors.length);
+
     return Container(
         // color: Colors.white,
         child: Center(
             child: SizedBox(
-                width: 200,
-                height: 250,
+                width: 150,
+                height: 150,
                 child: Container(
                     // color: Colors.white,
                     child: Padding(
-                  padding: EdgeInsets.only(top: 10, bottom: 10, right: 10),
+                  padding: EdgeInsets.only(top: 10),
                   child: StickyNote(
                       child: DefaultTextStyle(
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontFamily: 'Calligraffitti',
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'ComingSoon',
+                              fontSize: 12,
+                              color: Colors.black54,
+                              fontWeight: FontWeight.bold,
                               fontFeatures: [FontFeature.randomize()]),
                           child: Text(
                             data.toString(),
@@ -64,7 +69,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // getIdeas();
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return Container(
         color: Color.fromARGB(255, 173, 135, 98),
         child: Padding(
@@ -74,14 +80,18 @@ class Home extends StatelessWidget {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     return ResponsiveGridList(
-                        desiredItemWidth: 200,
-                        minSpacing: 10,
+                        desiredItemWidth:
+                            width > height ? 150 : (width / 3) - 30,
+
+                        // minSpacing: 5,
                         children: snapshot.data.map<Widget>((value) {
                           debugPrint(value);
                           return container(context, value);
                         }).toList());
                   } else {
-                    return Text("Loading");
+                    return Center(
+                        child: DefaultTextStyle(
+                            style: TextStyle(), child: Text("Loading")));
                   }
                 })));
   }
