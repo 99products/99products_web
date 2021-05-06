@@ -78,6 +78,11 @@ class Home extends StatelessWidget {
     height = MediaQuery.of(context).size.height;
     return Container(
         color: Colors.green.shade300,
+        // decoration: BoxDecoration(
+        //     image: DecorationImage(
+        //   image: AssetImage('assets/images/cardboard-green.png'),
+        //   fit: BoxFit.fill,
+        // )),
         child: Column(children: [
           SizedBox(
             height: 10,
@@ -92,6 +97,14 @@ class Home extends StatelessWidget {
                 cursor: SystemMouseCursors.click,
               )),
           centerText('An idea can change everything', 10),
+          SizedBox(height: 10),
+          TextButton(
+            onPressed: () {
+              _launchURL('https://forms.gle/yVV3Cx2nufF2GW3BA');
+            },
+            child: centerText("I have an idea", 14, color: Colors.blue),
+            style: ButtonStyle(),
+          ),
           SizedBox(
             height: 20,
           ),
@@ -129,10 +142,10 @@ class Home extends StatelessWidget {
         child: DefaultTextStyle(
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontFamily: 'ComingSoon',
+                fontFamily: 'Itim',
                 fontSize: fontSize,
                 color: color,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w200,
                 fontFeatures: [FontFeature.randomize()]),
             child: Text(text)));
   }
