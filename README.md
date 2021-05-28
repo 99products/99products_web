@@ -1,9 +1,5 @@
-# flutter_sticky_note
+The gateway to DAO, Decentralized Autonomous organization.  
 
-A realistic sticky note in Flutter
+Million ideas for the Billion people
 
-![https://www.flutterclutter.dev/wp-content/uploads/2020/07/sticky-note-flutter.png](https://www.flutterclutter.dev/wp-content/uploads/2020/07/sticky-note-flutter.png)
-
-# Article
-
-Find the respective tutorial here: https://www.flutterclutter.dev/flutter/tutorials/create-a-sticky-note-in-flutter/2020/1018/
+Its a portal for open source ideas, where anyone can post ideas and the community will vote for it, and the community choose the pick and develop the idea to reality.
