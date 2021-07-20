@@ -1,0 +1,185 @@
+.app-masonry-grid {
+  display: flex;
+  margin-left: -50px; /* gutter size offset */
+  width: auto;
+}
+.app-masonry-grid_column {
+  padding-left: 50px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.app-masonry-grid_column > div {
+  /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 50px;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.wrapper {
+  padding: 25px;
+}
+
+.app {
+  background: linear-gradient(0deg, #E5E5E5 0%, #fff 100%);
+}
+
+.fixed-true {
+  position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.project-title {
+  text-transform: capitalize;
+}
+
+.purple-bg {
+  background: #ff6ec4;
+}
+.peach-bg {
+  background: #ffd86f;
+}
+.aqua-bg {
+  background: #2096ff;
+}
+.frost-bg {
+  background: #ff9966;
+}
+.orange-bg {
+  background: #ff9966;
+}
+.blue-bg {
+  background: #45cafc;
+}
+
+.google_play-btn, .google_play-btn:hover {
+  background: #25d366;
+}
+
+.app_store-btn, .app_store-btn:hover {
+  background: #4c75a3;
+}
+
+.web_link-btn, .web_link-btn:hover {
+  background: #55acee;
+}
+
+.disabled-btn {
+  background-color: #ababab !important;
+}
+
+/**
+Reference : https://www.eggradients.com
+*/
+.adele_s-second-love {
+  background: linear-gradient( 40deg, #5aff15, #00b712);
+}
+.abstract-truth {
+  background: linear-gradient( 40deg, #e899dc, #d387ab); 
+}
+.instagram-story {
+  background: linear-gradient( 40deg, #1fd1f9, #b621fe); 
+}
+.mars_conquest {
+  background: linear-gradient( 40deg, #ec9f05, #ff4e00);
+}
+.director_s-cut {
+  background: linear-gradient( 40deg, #0abcf9, #2c69d1);
+}
+.fate-believes {
+  background: linear-gradient( 40deg, #f977ce, #c373f2);
+}
+.unexpected_erection {
+  background: linear-gradient( 40deg, #0beef9, #48a9fe);
+}
+.square_donut {
+  background: linear-gradient( 40deg, #00bfb2, #028090);
+}
+.real-estate-agent {
+  background: linear-gradient( 40deg, #f7accf, #ff1053);
+}
+.red-kit {
+  background: linear-gradient( 40deg, #ff0000, #990000);
+}
+.soda {
+  background: linear-gradient( 40deg, #ffdd00, #fbb034);
+}
+/***********************************************************/
+
+
+.purple-gradient-rgba {
+  background: linear-gradient(
+    40deg,
+    rgba(255, 110, 196, 0.9),
+    rgba(120, 115, 245, 0.9)
+  ) !important;
+}
+.peach-gradient-rgba {
+  background: linear-gradient(
+    40deg,
+    rgba(255, 216, 111, 0.9),
+    rgba(252, 98, 98, 0.9)
+  ) !important;
+}
+.aqua-gradient-rgba {
+  background: linear-gradient(
+    40deg,
+    rgba(32, 150, 255, 0.9),
+    rgba(5, 255, 163, 0.9)
+  ) !important;
+}
+.blue-gradient-rgba {
+  background: linear-gradient(
+    40deg,
+    rgba(69, 202, 252, 0.9),
+    rgba(48, 63, 159, 0.9)
+  ) !important;
+}
+
+.raise {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.raise:hover,
+.raise:focus {
+  transform: scale(1.4);
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 25px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 30px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .wrapper {
+    padding: 40px;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .wrapper {
+    padding: 60px;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) 
+@media (min-width: 1400px) {
+  .wrapper {
+    padding: 80px;
+  }
+}
+*/
