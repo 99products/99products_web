@@ -1,5 +1,14 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBIcon,
+  MDBNavbar,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBNavbarNav,
+} from "mdb-react-ui-kit";
 import React, { useEffect, useState } from "react";
 import Masonry from "react-masonry-css";
 import "./App.css";
@@ -14,7 +23,6 @@ const breakpointColumnsObj = {
 };
 
 const App = () => {
-
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
@@ -29,24 +37,19 @@ const App = () => {
     });
   }, []);
 
-  const getRandomColor = () => {
-    const randomIndex = Math.floor(Math.random() * colorNames.length);
-    const colorName = colorNames[randomIndex];
-    return colorName;
-  };
-
   const getIdeasList = () => {
-    fetch("https://spreadsheets.google.com/feeds/cells/132xxPkI4p_ehAv8AI9hzB5EbcK6CycGaPCDKCR3Xq-o/1/public/full?alt=json")
-      .then(res => res.json())
-      .then(json => {
-
+    fetch(
+      "https://spreadsheets.google.com/feeds/cells/132xxPkI4p_ehAv8AI9hzB5EbcK6CycGaPCDKCR3Xq-o/1/public/full?alt=json"
+    )
+      .then((res) => res.json())
+      .then((json) => {
         const colNames = {};
         const ideasList = [];
 
         let previousRowId = 0;
         let data;
 
-        const rows = json.feed.entry
+        const rows = json.feed.entry;
         rows.forEach((rowData) => {
           const cell = rowData.gs$cell;
           const { row, col, inputValue } = cell;
@@ -66,47 +69,54 @@ const App = () => {
         });
         setIdeas([...ideasList]);
       });
-  }
+  };
 
   return (
     <div className={ideas.length && "app"}>
-      {/* <header>
+      <header>
         <MDBNavbar expand="lg" light bgColor="white" fixed>
           <MDBContainer fluid>
-            <MDBNavbarToggler
-              aria-controls="navbarExample01"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <MDBIcon fas icon="bars" />
-            </MDBNavbarToggler>
-            <div className="collapse navbar-collapse" id="navbarExample01">
-              <MDBNavbarNav right className="mb-2 mb-lg-0">
-                <MDBNavbarItem active>
-                  <MDBNavbarLink aria-current="page" href="#">
-                    <div style={{ display: "flex", marginLeft: 10 }}>
-                      <img
-                        style={{ height: 40, width: 40 }}
-                        src={`https://avatars.githubusercontent.com/u/83353242?s=400&u=f5a8e265be0eaf5fc2db2a4437d8685a3acd5c37&v=4`}
-                        className="img-fluid"
-                      />
-                      <h2 style={{ marginLeft: 10 }}>99 Ideas</h2>
-                    </div>
-                  </MDBNavbarLink>
-                </MDBNavbarItem>
-              </MDBNavbarNav>
-            </div>
-          </MDBContainer>
-        </MDBNavbar> */}
+            <MDBNavbarNav right className="mb-2 mb-lg-0">
+              <MDBNavbarItem active data-aos="fade-in-left">
+                <MDBNavbarLink
+                  aria-current="page"
+                  href="/"
+                  className="no-padding"
+                >
+                  <div className="logo_container">
+                    <img
+                      src={`./assets/logo.jpeg`}
+                      className="img-fluid logo"
+                    />
+                    <h2 className="logo-text">99 Products</h2>
+                  </div>
+                </MDBNavbarLink>
+              </MDBNavbarItem>
 
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="wrapper app-masonry-grid"
-        columnClassName="app-masonry-grid_column"
-      >
-        {ideas.map((idea, i) => <IdeaCard idea={idea} />)}
-      </Masonry>
-      {/* </header> */}
+              <MDBNavbarItem className="share_idea-wrapper" data-aos="fade-in-right">
+                <MDBBtn
+                  className={`m-2 share_idea-btn`}
+                  target="_blank"
+                  href="https://forms.gle/yVV3Cx2nufF2GW3BA"
+                >
+                  <MDBIcon fas icon="box-open" size={"lg"} />
+                  <span className="submit_idea_label">Unleash Your Idea</span>
+                </MDBBtn>
+              </MDBNavbarItem>
+            </MDBNavbarNav>
+          </MDBContainer>
+        </MDBNavbar>
+
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="wrapper app-masonry-grid"
+          columnClassName="app-masonry-grid_column"
+        >
+          {ideas.map((idea, i) => (
+            <IdeaCard idea={idea} />
+          ))}
+        </Masonry>
+      </header>
     </div>
   );
 };

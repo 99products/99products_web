@@ -22,14 +22,41 @@
   padding: 25px;
 }
 
+.share_idea-wrapper {
+  align-self: center;
+  margin-top: 10px;
+  margin-left: auto;
+}
+
+.logo_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  margin-left: 16px;
+}
+
 .app {
-  background: linear-gradient(0deg, #E5E5E5 0%, #fff 100%);
+  background: linear-gradient(0deg, #e5e5e5 0%, #fff 100%);
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.logo-text {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-family: "Roboto";
+}
+
+.submit_idea_label {
+  margin-left: 10px;
 }
 
 .fixed-true {
   position: sticky;
-    top: 0;
-    z-index: 1020;
+  top: 0;
+  z-index: 1020;
 }
 
 .project-title {
@@ -55,15 +82,28 @@
   background: #45cafc;
 }
 
-.google_play-btn, .google_play-btn:hover {
-  background: #25d366;
+.google_play-btn,
+.google_play-btn:hover,
+.google_play-btn:active,
+.share_idea-btn,
+.share_idea-btn:hover,
+.share_idea-btn:active {
+  background: #25d366 !important;
 }
 
-.app_store-btn, .app_store-btn:hover {
+.logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 8px;
+}
+
+.app_store-btn,
+.app_store-btn:hover {
   background: #4c75a3;
 }
 
-.web_link-btn, .web_link-btn:hover {
+.web_link-btn,
+.web_link-btn:hover {
   background: #55acee;
 }
 
@@ -75,40 +115,39 @@
 Reference : https://www.eggradients.com
 */
 .adele_s-second-love {
-  background: linear-gradient( 40deg, #5aff15, #00b712);
+  background: linear-gradient(40deg, #5aff15, #00b712);
 }
 .abstract-truth {
-  background: linear-gradient( 40deg, #e899dc, #d387ab); 
+  background: linear-gradient(40deg, #e899dc, #d387ab);
 }
 .instagram-story {
-  background: linear-gradient( 40deg, #1fd1f9, #b621fe); 
+  background: linear-gradient(40deg, #1fd1f9, #b621fe);
 }
 .mars_conquest {
-  background: linear-gradient( 40deg, #ec9f05, #ff4e00);
+  background: linear-gradient(40deg, #ec9f05, #ff4e00);
 }
 .director_s-cut {
-  background: linear-gradient( 40deg, #0abcf9, #2c69d1);
+  background: linear-gradient(40deg, #0abcf9, #2c69d1);
 }
 .fate-believes {
-  background: linear-gradient( 40deg, #f977ce, #c373f2);
+  background: linear-gradient(40deg, #f977ce, #c373f2);
 }
 .unexpected_erection {
-  background: linear-gradient( 40deg, #0beef9, #48a9fe);
+  background: linear-gradient(40deg, #0beef9, #48a9fe);
 }
 .square_donut {
-  background: linear-gradient( 40deg, #00bfb2, #028090);
+  background: linear-gradient(40deg, #00bfb2, #028090);
 }
 .real-estate-agent {
-  background: linear-gradient( 40deg, #f7accf, #ff1053);
+  background: linear-gradient(40deg, #f7accf, #ff1053);
 }
 .red-kit {
-  background: linear-gradient( 40deg, #ff0000, #990000);
+  background: linear-gradient(40deg, #ff0000, #990000);
 }
 .soda {
-  background: linear-gradient( 40deg, #ffdd00, #fbb034);
+  background: linear-gradient(40deg, #ffdd00, #fbb034);
 }
 /***********************************************************/
-
 
 .purple-gradient-rgba {
   background: linear-gradient(
@@ -150,8 +189,15 @@ Reference : https://www.eggradients.com
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
+  .logo {
+    height: 50px;
+    width: 50px;
+  }
   .wrapper {
     padding: 25px;
+  }
+  .share_idea-wrapper {
+    margin-left: unset;
   }
 }
 
@@ -160,6 +206,9 @@ Reference : https://www.eggradients.com
   .wrapper {
     padding: 30px;
   }
+  .share_idea-wrapper {
+    margin-left: unset;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -167,12 +216,18 @@ Reference : https://www.eggradients.com
   .wrapper {
     padding: 40px;
   }
+  .share_idea-wrapper {
+    margin-left: auto;
+  }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .wrapper {
     padding: 60px;
+  }
+  .share_idea-wrapper {
+    margin-left: auto;
   }
 }
 
