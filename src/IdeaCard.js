@@ -29,13 +29,13 @@ const getRandomColor = () => {
 
 const isDisabledBtn = (value) => (!value ? "disabled-btn" : "");
 
-const IdeaCard = ({ idea }) => {
+const IdeaCard = ({idea}) => {
   const playStoreLink = idea["Play Store"];
   const appStoreLink = idea["App Store"];
   const webLink = idea["Web"];
 
   return (
-    <MDBCard cascade style={{ borderRadius: ".8rem" }} data-aos="zoom-in-up">
+    <MDBCard style={{borderRadius: ".8rem"}} data-aos="zoom-in-up">
       <div
         style={{
           borderTopLeftRadius: ".8rem",
@@ -45,7 +45,7 @@ const IdeaCard = ({ idea }) => {
       >
         <h3 className="project-title">{`${idea.Title}`}</h3>
       </div>
-      <MDBCardBody cascade className="text-center">
+      <MDBCardBody className="text-center">
         <MDBCardText>{idea.Description}</MDBCardText>
         <div className="text-center">
           <a href={idea.Github} target="_blank">
@@ -54,7 +54,7 @@ const IdeaCard = ({ idea }) => {
               icon="github"
               size="2x"
               className="m-2 raise"
-              style={{ color: "#333333" }}
+              style={{color: "#333333"}}
             />
           </a>
           <hr />
@@ -74,7 +74,6 @@ const IdeaCard = ({ idea }) => {
             disabled={!playStoreLink}
             href={playStoreLink}
             target="_blank"
-            
           >
             <MDBIcon fab icon="google-play" size={"lg"} />
           </MDBBtn>

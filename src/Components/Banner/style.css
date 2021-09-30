@@ -1,0 +1,49 @@
+.banner {
+  display: flex;
+  background: radial-gradient(#639ce3, #5783d2);
+  flex-direction: column;
+}
+
+.logo_container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.logo-text {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+
+.sub_title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  padding: 5px 20px 10px 20px;
+}
+
+.info_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0px 20px 0px;
+}
+
+.share_idea-btn {
+  margin: 30px 0px 50px 0px;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 20px;
+  }
+}
