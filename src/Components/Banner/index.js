@@ -12,7 +12,7 @@ export default function Banner(props) {
       <div className="info_container">
         <span className="title">A Decentralized Autonomous Organization</span>
         <span className="sub_title">
-          Feel free to add an app in progress and update it when it goes live
+          Feel free to add an app in progress and update it when it goes live.
         </span>
           <MDBBtn
             className="share_idea-btn"
