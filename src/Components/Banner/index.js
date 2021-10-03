@@ -20,7 +20,7 @@ export default function Banner(props) {
             onClick={props.onClick}
           >
             <MDBIcon fas icon="box-open" size={"lg"} />
-            <span className="submit_idea_label">Unleash Your Idea</span>
+            <span className="submit_idea_label">I have an Idea</span>
           </MDBBtn>
       </div>
     </div>
