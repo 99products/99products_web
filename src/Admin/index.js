@@ -17,7 +17,7 @@ class Admin extends Component {
         });
       })
       .catch((err) => {
-        this.props.history.push("/404");
+        this.props.history.push("/Error");
       });
   }
 
