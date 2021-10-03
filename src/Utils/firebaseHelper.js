@@ -1,10 +1,11 @@
 import firebaseDB from "../firebase";
 
-const COLLECTION_NAME = "ideas";
+const IDEAS_COLLECTION = "ideas";
+const USERS_COLLECTION = "users";
 
-const insertDataToFirebase = async(content) => {
+const insertDataToFirebase = async (content) => {
   await firebaseDB
-    .collection(COLLECTION_NAME)
+    .collection(IDEAS_COLLECTION)
     .add({
       AppStore: content.appStore,
       Title: content.title,
@@ -27,7 +28,7 @@ const insertDataToFirebase = async(content) => {
 };
 
 const getIdeasList = async () => {
-  const response = firebaseDB.collection(COLLECTION_NAME);
+  const response = firebaseDB.collection(IDEAS_COLLECTION);
   const data = await response.get();
   const ideasList = [];
   data.docs.forEach((item) => {
@@ -36,7 +37,20 @@ const getIdeasList = async () => {
   return ideasList;
 };
 
+const getUserPermissions = async (user) => {
+  const response = firebaseDB.collection(USERS_COLLECTION).doc(user);
+  const data = await response.get();
+  
+  return (
+    data.data() ||
+    new Promise((resolve, reject) => {
+      reject("No user match found");
+    })
+  );
+};
+
 export default {
   insertDataToFirebase,
   getIdeasList,
+  getUserPermissions,
 };
