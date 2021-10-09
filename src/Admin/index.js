@@ -54,7 +54,7 @@ const Admin = (props) => {
         getIdeasList();
       })
       .catch((err) => {
-        this.props.history.push("/Error");
+        props.history.push("/Error");
       });
   }, []);
 
