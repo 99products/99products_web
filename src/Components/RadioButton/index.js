@@ -3,8 +3,8 @@ import "mdbreact/dist/css/mdb.css";
 import "./style.css";
 
 const RadioButton = (props) => {
-  const [radio, setRadio] = useState(0);
-  const {options, onSelectionChange} = props;
+  const {displayLabels ,options, onSelectionChange} = props;
+  const [radio, setRadio] = useState(props.defaultIndex);
 
   const onChange = (index) => {
     setRadio(index);
@@ -29,9 +29,9 @@ const RadioButton = (props) => {
 
   return (
     <div className="radio-button-group">
-      {options &&
-        options.map((option, index) => {
-          return createRadioButton(index, option);
+      {displayLabels &&
+        displayLabels.map((displayLabel, index) => {
+          return createRadioButton(index, displayLabel);
         })}
     </div>
   );

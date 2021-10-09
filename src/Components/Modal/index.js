@@ -4,33 +4,27 @@ import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import {
   MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBInput,
-  MDBIcon,
   MDBBtn,
   MDBModal,
   MDBModalBody,
-  MDBModalHeader,
-  MDBModalFooter,
+  MDBModalHeader
 } from "mdbreact";
 
 const Modal = (props) => {
   return (
     <MDBContainer>
-      <MDBModal isOpen={props.isOpen} toggle={props.closeModal} centered={true} overflowScroll={false}>
+      <MDBModal
+        isOpen={props.isOpen}
+        toggle={props.closeModal}
+        centered={true}
+        overflowScroll={false}
+      >
         <MDBModalHeader toggle={props.closeModal}>
-          {props.ideaObj?.Title}
+          {props.ideaObj?.title}
         </MDBModalHeader>
         <MDBModalBody>
-          <div>{props.ideaObj?.Description}</div>
+          <div>{props.ideaObj?.description}</div>
         </MDBModalBody>
-        <MDBModalFooter>
-          <MDBBtn color="secondary" onClick={props.closeModal}>
-            Close
-          </MDBBtn>
-          <MDBBtn color="primary">Edit</MDBBtn>
-        </MDBModalFooter>
       </MDBModal>
     </MDBContainer>
   );

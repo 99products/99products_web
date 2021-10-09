@@ -6,19 +6,7 @@ const USERS_COLLECTION = "users";
 const insertDataToFirebase = async (content) => {
   await firebaseDB
     .collection(IDEAS_COLLECTION)
-    .add({
-      AppStore: content.appStore,
-      Title: content.title,
-      Description: content.description,
-      Category: content.category,
-      EffortSize: content.effortSize,
-      TechStack: content.techStack,
-      Status: content.status,
-      Remarks: content.remarks,
-      Github: content.github,
-      PlayStoreLink: content.playstoreLink,
-      Web: content.web,
-    })
+    .add(content)
     .then((obj) => {
       return true;
     })
@@ -27,12 +15,27 @@ const insertDataToFirebase = async (content) => {
     });
 };
 
+const updateDataToFirebase = async (content) => {
+  await firebaseDB
+    .collection(IDEAS_COLLECTION)
+    .doc(content.id)
+    .update(content)
+    .then((obj) => {
+      console.log("UPDATE:::", obj);
+    })
+    .catch((err) => {
+      console.log("ERROR:::", JSON.stringify(err));
+    });
+};
+
 const getIdeasList = async () => {
   const response = firebaseDB.collection(IDEAS_COLLECTION);
   const data = await response.get();
   const ideasList = [];
-  data.docs.forEach((item) => {
-    ideasList.push(item.data());
+  data.docs.forEach((doc) => {
+    const ideaObj = doc.data();
+    ideaObj["id"] = doc.id;
+    ideasList.push(ideaObj);
   });
   return ideasList;
 };
@@ -40,7 +43,7 @@ const getIdeasList = async () => {
 const getUserPermissions = async (user) => {
   const response = firebaseDB.collection(USERS_COLLECTION).doc(user);
   const data = await response.get();
-  
+
   return (
     data.data() ||
     new Promise((resolve, reject) => {
@@ -51,6 +54,7 @@ const getUserPermissions = async (user) => {
 
 export default {
   insertDataToFirebase,
+  updateDataToFirebase,
   getIdeasList,
   getUserPermissions,
 };

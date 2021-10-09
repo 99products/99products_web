@@ -1,7 +1,9 @@
-.parent-content-holder {
+.form-content-holder {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-color: #eeeaf7;
 }
 
 .instruction-container {

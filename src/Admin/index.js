@@ -80,15 +80,23 @@ const Admin = (props) => {
     setModalState(false);
   };
 
+  const handleEditClick = (index) => {
+    const ideas = ideasList[index];
+    props.history.push({
+      pathname: "/form",
+      state: {ideaObj: ideas},
+    });
+  };
+
   const createRow = (index) => {
     const ideas = ideasList[index];
     return (
       <div className="idea-details-row">
         <div className="idea-row-left-container">
           <div className="details-container">
-            <span style={inlineStyle.titleLabel}>{ideas.Title}</span>
-            <span style={inlineStyle.categoryLabel}>{ideas.Category}</span>
-            <span style={inlineStyle.effortLabel}>{ideas.EffortSize}</span>
+            <span style={inlineStyle.titleLabel}>{ideas.title}</span>
+            <span style={inlineStyle.categoryLabel}>{ideas.category}</span>
+            <span style={inlineStyle.effortLabel}>{ideas.effortSize}</span>
           </div>
           <div
             style={inlineStyle.badgeDiv}
@@ -97,7 +105,11 @@ const Admin = (props) => {
             <span className="badge badge-pill badge-primary">Description</span>
           </div>
         </div>
-        <button type="button" style={inlineStyle.buttonStyle}>
+        <button
+          type="button"
+          style={inlineStyle.buttonStyle}
+          onClick={() => handleEditClick(index)}
+        >
           <i className="fas fa-edit"></i>
         </button>
       </div>
@@ -107,7 +119,11 @@ const Admin = (props) => {
   return (
     <div className="admin-table">
       {createHeaders()}
-      <Modal isOpen={showModal} closeModal={closeModal} ideaObj={ideasList[selectedIndex]}/>
+      <Modal
+        isOpen={showModal}
+        closeModal={closeModal}
+        ideaObj={ideasList[selectedIndex]}
+      />
       <AutoSizer>
         {({width, height}) => (
           <List

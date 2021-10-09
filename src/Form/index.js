@@ -1,15 +1,18 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import {useLocation} from "react-router";
 import "./style.css";
 import FormInput from "../Components/FormInput";
-import {formInputIds, componentDetails} from "./formComponentDetails";
+import {formInputIds, componentDetails} from "../Utils/formComponentDetails";
 import {MDBBtn} from "mdbreact";
 import firebaseHelper from "../Utils/firebaseHelper";
 import {useAlert} from "react-alert";
 
-const Form = () => {
+const Form = (props) => {
   const [showError, setErrorStatus] = useState(false);
   const alert = useAlert();
-  const formResultsHolder = {};
+  const location = useLocation();
+
+  let formResultsHolder = location.state?.ideaObj || {};
 
   const validateFormData = () => {
     return Object.keys(formResultsHolder).some(
@@ -22,22 +25,22 @@ const Form = () => {
     setErrorStatus(showError);
 
     if (!showError) {
-      const result = firebaseHelper.insertDataToFirebase(formResultsHolder);
-      result && alert.success("Your idea details are submitted successfully!!");
+      const isNewRecord = formResultsHolder?.id.length === 0;
+      const result = isNewRecord
+        ? firebaseHelper.insertDataToFirebase(formResultsHolder)
+        : firebaseHelper.updateDataToFirebase(formResultsHolder);
+      result &&
+        alert.success(
+          `Your idea details are ${
+            isNewRecord ? "submitted" : "updated"
+          } successfully!!`
+        );
     }
   };
   const clearForm = () => {};
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#eeeaf7",
-      }}
-    >
+    <div className="form-content-holder" style={{overflow: "auto"}}>
       <div className="instruction-container">
         <h2>Ideas</h2>
         <p>
@@ -62,6 +65,7 @@ const Form = () => {
             title={detailsObj.title}
             type={detailsObj.type}
             hintText={detailsObj.hintText}
+            displayLabels={detailsObj?.displayLabels || undefined}
             options={detailsObj?.options || undefined}
             resultsHolder={formResultsHolder}
           />

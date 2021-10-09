@@ -5,18 +5,22 @@ export const formInputIds = [
   "category",
   "effortSize",
   "github",
-  "playstoreLink",
+  "playStore",
   "appStore",
   "status",
   "remarks",
-  "web"
+  "web",
 ];
-const categoryArr = ["App", "Game", "Web", "Bot", "Utility", "Other"];
-const effortSizeArr = [
-  "Small (1-2 weeks)",
-  "Medium ( 1 to 2 months)",
-  "Large ( 3 to 6 months)",
+const category = ["App", "Game", "Web", "Bot", "Utility","Server","Blockchain", "Other"];
+const effortSizeDisplay = [
+  "Small (1 - 2 weeks)",
+  "Medium (1 - 2 months)",
+  "Large (3 - 6 months)",
+  "Extra Large (More than 6 months)",
 ];
+
+const effortSize = ["S", "M", "L", "XL"];
+
 export const componentDetails = {
   title: {title: "Whats your idea?", type: 1, hintText: "Your answer"},
   description: {
@@ -33,47 +37,44 @@ export const componentDetails = {
     title: "Category",
     type: 3,
     hintText: "Your answer",
-    options: categoryArr,
+    displayLabels: category,
+    options: category,
   },
   effortSize: {
     title: "How much approx time to execute the idea?",
     type: 3,
     hintText: "Your answer",
-    options: effortSizeArr,
+    displayLabels: effortSizeDisplay,
+    options: effortSize,
   },
   github: {
     title: "Github link",
     type: 1,
     hintText: "Your answer",
   },
-  playstoreLink: {
+  playStore: {
     title: "Play store link",
     type: 1,
     hintText: "Your answer",
   },
-  playstoreLink: {
-    title: "Play store link",
-    type: 1,
-    hintText: "Your answer",
-  },
-  remarks:{
+  remarks: {
     title: "Remarks",
     type: 1,
     hintText: "Your answer",
   },
-  web:{
+  web: {
     title: "Web Link",
     type: 1,
     hintText: "Your answer",
   },
-  appStore:{
+  appStore: {
     title: "App Store Link",
     type: 1,
     hintText: "Your answer",
   },
-  status:{
+  status: {
     title: "Project current status",
     type: 1,
     hintText: "Your answer",
-  }
+  },
 };

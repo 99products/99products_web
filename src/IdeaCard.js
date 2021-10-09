@@ -30,9 +30,9 @@ const getRandomColor = () => {
 const isDisabledBtn = (value) => (!value ? "disabled-btn" : "");
 
 const IdeaCard = ({idea}) => {
-  const playStoreLink = idea["Play Store"];
-  const appStoreLink = idea["App Store"];
-  const webLink = idea["Web"];
+  const playStoreLink = idea["playStore"];
+  const appStoreLink = idea["appStore"];
+  const webLink = idea["web"];
 
   return (
     <MDBCard style={{borderRadius: ".8rem"}} data-aos="zoom-in-up">
@@ -43,10 +43,10 @@ const IdeaCard = ({idea}) => {
         }}
         className={`shadow-3-strong ${getRandomColor()} white-text d-flex justify-content-center align-items-center flex-column p-4`}
       >
-        <h3 className="project-title">{`${idea.Title}`}</h3>
+        <h3 className="project-title">{`${idea.title}`}</h3>
       </div>
       <MDBCardBody className="text-center">
-        <MDBCardText>{idea.Description}</MDBCardText>
+        <MDBCardText>{idea.description}</MDBCardText>
         <div className="text-center">
           <a href={idea.Github} target="_blank">
             <MDBIcon
