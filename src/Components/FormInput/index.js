@@ -5,7 +5,6 @@ import "mdbreact/dist/css/mdb.css";
 
 const FormInput = (props) => {
   const getSecondaryComp = (type, hintText) => {
-    const defaultValue= 
     props.resultsHolder[props.id] =
       props.resultsHolder[props.id] || (type !== 3 ? "" : props.options[0]);
     switch (type) {
@@ -52,7 +51,10 @@ const FormInput = (props) => {
 
   return (
     <div className="form-container">
-      <span>{props.title}</span>
+      <span>
+        {props.title}
+        <span style={{color: "red"}}>{props.isMandatory ? " *" : ""}</span>
+      </span>
       {getSecondaryComp(props.type, props.hintText)}
     </div>
   );

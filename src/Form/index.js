@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useRef} from "react";
 import {useLocation} from "react-router";
 import "./style.css";
 import FormInput from "../Components/FormInput";
@@ -12,23 +12,27 @@ const Form = (props) => {
   const alert = useAlert();
   const location = useLocation();
 
-  let formResultsHolder = location.state?.ideaObj || {};
+  let formResultsHolder = useRef(location.state?.ideaObj || {});
 
   const validateFormData = () => {
-    return Object.keys(formResultsHolder).some(
-      (key) => formResultsHolder[key].length === 0
-    );
+    const formData = formResultsHolder.current;
+    for (const key in formData) {
+      if (componentDetails[key]?.isMandatory && formData[key].length === 0) {
+        return false;
+      }
+    }
+    return true;
   };
 
   const onSubmit = () => {
-    const showError = validateFormData();
-    setErrorStatus(showError);
-
-    if (!showError) {
-      const isNewRecord = formResultsHolder?.id.length === 0;
+    const isValid = validateFormData();
+    setErrorStatus(!isValid);
+    if (isValid) {
+      const formData = formResultsHolder.current;
+      const isNewRecord = formData?.id ? formData?.id.length === 0 : true;
       const result = isNewRecord
-        ? firebaseHelper.insertDataToFirebase(formResultsHolder)
-        : firebaseHelper.updateDataToFirebase(formResultsHolder);
+        ? firebaseHelper.insertDataToFirebase(formData)
+        : firebaseHelper.updateDataToFirebase(formData);
       result &&
         alert.success(
           `Your idea details are ${
@@ -37,6 +41,11 @@ const Form = (props) => {
         );
     }
   };
+
+  const homeBtnClick = () => {
+    props.history.push("/");
+  }
+
   const clearForm = () => {};
 
   return (
@@ -67,16 +76,22 @@ const Form = (props) => {
             hintText={detailsObj.hintText}
             displayLabels={detailsObj?.displayLabels || undefined}
             options={detailsObj?.options || undefined}
-            resultsHolder={formResultsHolder}
+            isMandatory={detailsObj.isMandatory}
+            resultsHolder={formResultsHolder.current}
           />
         );
       })}
-      <div style={{display: showError ? "flex" : "none", width: "600px"}}>
-        <span style={{color: "red"}}>
-          * Please do fill all the fields to proceed.
-        </span>
-      </div>
+      {showError && (
+        <div style={{width: "600px"}}>
+          <span style={{color: "red"}}>
+            * Please do fill all the fields to proceed.
+          </span>
+        </div>
+      )}
       <div className="footer">
+        <MDBBtn color="primary" onClick={homeBtnClick}>
+          Home
+        </MDBBtn>
         <MDBBtn color="primary" onClick={onSubmit}>
           Submit
         </MDBBtn>

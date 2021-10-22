@@ -21,10 +21,15 @@
   justify-content: space-between;
   margin-top: 5px;
   margin-bottom: 20px;
+  width: 600px;
 }
 
 @media (max-width: 600px) {
   .instruction-container {
+    width: 100%;
+  }
+
+  .footer {
     width: 100%;
   }
 }
