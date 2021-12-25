@@ -82,30 +82,10 @@
   background: #45cafc;
 }
 
-.google_play-btn,
-.google_play-btn:hover,
-.google_play-btn:active {
-  background: #25d366 !important;
-}
-
 .logo {
   height: 60px;
   width: 60px;
   border-radius: 8px;
-}
-
-.app_store-btn,
-.app_store-btn:hover {
-  background: #4c75a3;
-}
-
-.web_link-btn,
-.web_link-btn:hover {
-  background: #55acee;
-}
-
-.disabled-btn {
-  background-color: #ababab !important;
 }
 
 /**

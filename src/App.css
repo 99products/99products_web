@@ -86,6 +86,8 @@
 .google_play-btn:hover,
 .google_play-btn:active {
   background: #25d366 !important;
+  border-color: #25d366;
+  border-radius: 6px;
 }
 
 .logo {
@@ -97,11 +99,15 @@
 .app_store-btn,
 .app_store-btn:hover {
   background: #4c75a3;
+  border-color: #4c75a3;
+  border-radius: 6px;
 }
 
 .web_link-btn,
 .web_link-btn:hover {
   background: #55acee;
+  border-color: #55acee;
+  border-radius: 6px;
 }
 
 .disabled-btn {
